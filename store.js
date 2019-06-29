@@ -18,7 +18,7 @@ export const actionTypes = {
   TERRY: 'TERRY'
 }
 
-// REDUCERS
+// REDUCERS (action 就是下面 'ACTIONS' 指定的資料~)
 export const reducer = (state = exampleInitialState, action) => {
   switch (action.type) {
     case actionTypes.TICK:
@@ -50,8 +50,9 @@ export const reducer = (state = exampleInitialState, action) => {
   }
 }
 
-// ACTIONS
+// ACTIONS dispatch + 塞資料給 reducer
 export const showName = (name) => {  
+  // 待會上面 REDUCERS 的 action 參數就是這些~
   return {
     type: actionTypes.TERRY,
     payload: {
