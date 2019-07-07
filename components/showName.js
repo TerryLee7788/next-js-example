@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { showName } from '../store';
+import { showName, controlLoading } from '../store';
 
 class ShowName extends Component {
 
@@ -19,9 +19,19 @@ class ShowName extends Component {
 
     }
 
+    hideLoading () {
+
+        setTimeout(() => {
+
+          this.props.controlLoading(false);
+
+        }, 3000);
+
+      }
+
     render () {
 
-        const { name } = this.props.payload;
+        const { name } = this.props.clock.payload;
         return (
             <div style={{
                 marginTop: 16
@@ -39,6 +49,15 @@ class ShowName extends Component {
                         ? (<p>Your Name: {name}</p>)
                         : (null)
                 }
+                <hr/>
+                <button onClick={() => {
+
+                    this.props.controlLoading(!this.props.loading.haveLoading);
+                    this.hideLoading();
+
+                }}>
+                    toggle loading
+                </button>
             </div>
         );
 
@@ -47,12 +66,12 @@ class ShowName extends Component {
 }
 
 function mapStateToProps (state) {
-    const { payload } = state;
-    return { payload };
+    const { clock, loading } = state;
+    return { clock, loading };
 }
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ showName }, dispatch)
+  bindActionCreators({ showName, controlLoading }, dispatch)
 
 
 export default connect(

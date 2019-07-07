@@ -20,7 +20,7 @@ class Counter extends Component {
   }
 
   render () {
-    const { count } = this.props
+    const { count } = this.props;
     return (
       <div>
         <h1>
@@ -35,7 +35,7 @@ class Counter extends Component {
 }
 
 function mapStateToProps (state) {
-  const { count } = state
+  const { count } = state.clock
   return { count }
 }
 const mapDispatchToProps = dispatch =>

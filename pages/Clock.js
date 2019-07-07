@@ -24,7 +24,7 @@ class Index extends React.Component {
 
   render () {
 
-    const { name } = this.props.payload;
+    const { name } = this.props.clock.payload;
     
     return (
       <div>
@@ -38,14 +38,20 @@ class Index extends React.Component {
             : (null)
         }
         <Examples />
+        <p>
+          {
+            this.props.loading.haveLoading
+              ? ('show loading')
+              : ('hide loading')
+          }
+        </p>
       </div>
     )
   }
 }
 
-function mapStateToProps (state) {
-  const { payload } = state
-  return { payload }
+function mapStateToProps ({ clock, loading }) {
+  return { clock, loading };
 }
 
 const mapDispatchToProps = { startClock };

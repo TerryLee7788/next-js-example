@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 const exampleInitialState = {
@@ -10,12 +10,17 @@ const exampleInitialState = {
   }
 }
 
+const loadingInitState = {
+  haveLoading: false,
+};
+
 export const actionTypes = {
   TICK: 'TICK',
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
   RESET: 'RESET',
-  TERRY: 'TERRY'
+  TERRY: 'TERRY',
+  LOADING: 'LOADING',
 }
 
 // REDUCERS (action 就是下面 'ACTIONS' 指定的資料~)
@@ -50,6 +55,19 @@ export const reducer = (state = exampleInitialState, action) => {
   }
 }
 
+export const loading = (state = loadingInitState, action) => {
+
+  switch (action.type) {
+    case actionTypes.LOADING:
+        return Object.assign({}, state, {
+          haveLoading: action.payload.loading
+        });
+
+    default:
+        return state;
+  }
+};
+
 // ACTIONS dispatch + 塞資料給 reducer
 export const showName = (name) => {  
   // 待會上面 REDUCERS 的 action 參數就是這些~
@@ -80,9 +98,23 @@ export const resetCount = () => {
   return { type: actionTypes.RESET }
 }
 
+export const controlLoading = (loading) => ({
+  type: actionTypes.LOADING,
+  payload: {
+    loading
+  }
+});
+
+// combineReducers
+const rootReducer = combineReducers({
+  clock: reducer,
+  loading
+});
+
 export function initializeStore (initialState = exampleInitialState) {
   return createStore(
-    reducer,
+    rootReducer,
+    // reducer,
     initialState,
     composeWithDevTools(applyMiddleware())
   )

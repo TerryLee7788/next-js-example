@@ -8,6 +8,10 @@ const linksArray = [
     {
         href: '/SecondPage',
         text: 'secondPage'
+    },
+    {
+        href: '/Clock',
+        text: 'clock demo page'
     }
 ];
 

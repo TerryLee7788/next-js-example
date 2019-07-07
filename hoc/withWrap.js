@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import NavBar from '../components/header/NavBar';
-import Link from 'next/link';
 
 const withWrap = (Components) => {
 
