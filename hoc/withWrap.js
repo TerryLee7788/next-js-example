@@ -37,7 +37,8 @@ const withWrap = (Components, seoConfig, setting = {}) => {
                     }
                     <Components
                         {...this.props}
-                        name={this.props.name}
+                        // name={this.props.name}
+                        ref={this.props.forwardRef}
                     />
                 </main>
             );
@@ -46,9 +47,10 @@ const withWrap = (Components, seoConfig, setting = {}) => {
 
     }
 
-    return React.forwardRef((props, ref) => (
-        <Container {...props} forwardRef={ref}  />
-    ));
+    // return React.forwardRef((props, ref) => (
+    //     <Container {...props} forwardRef={ref}  />
+    // ));
+    return Container;
 
 };
 

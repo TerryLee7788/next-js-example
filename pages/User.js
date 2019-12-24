@@ -12,27 +12,7 @@ class User extends React.Component {
 
     }
 
-    static async getInitialProps ({ req, ctx }) {
-
-        let data = {};
-
-        console.log('csr');
-
-        await new Promise((resolve) => {
-            setTimeout(() => {
-
-                resolve();
-                data.gggg = 'ggg';
-                console.log('ggyy: ', this);
-
-            }, 5000)
-        })
-        // if (Component.getInitialProps) {
-        //     pageProps = await Component.getInitialProps(ctx)
-        // }
-
-        return { data, json, pageProps };
-    }
+    static async getInitialProps ({ req, ctx }) {}
 
     showLog = () => {
 
