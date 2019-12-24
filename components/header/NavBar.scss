@@ -1,0 +1,13 @@
+.navbar {
+    ul {
+        display: flex;
+        background-color: green;
+        li {
+            a {
+                padding: 16px;
+                display: block;
+                color: #fff;
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import styles from './NavBar.scss';
 
 const linksArray = [
     {
@@ -28,7 +29,7 @@ const users = [
 const NavBar = (props) => {
 
     return (
-        <nav className="navbar">
+        <nav className={styles.navbar}>
             <ul>
                 { // basic url
                     linksArray.map((link, idx) => {
