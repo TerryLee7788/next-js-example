@@ -1,7 +1,8 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { startClock, serverRenderClock } from '../store'
+import React from 'react';
+import { connect } from 'react-redux';
+import { startClock, serverRenderClock } from '../store';
 import Examples from '../components/example';
+import withWrap from '../hoc/withWrap';
 
 class Index extends React.Component {
   static getInitialProps ({ reduxStore, req }) {
@@ -19,13 +20,13 @@ class Index extends React.Component {
   }
 
   componentWillUnmount () {
-    clearInterval(this.timer)
+    clearInterval(this.timer);
   }
 
   render () {
 
     const { name } = this.props.clock.payload;
-    
+
     return (
       <div>
         {
@@ -59,4 +60,4 @@ const mapDispatchToProps = { startClock };
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Index)
+)(withWrap(Index))

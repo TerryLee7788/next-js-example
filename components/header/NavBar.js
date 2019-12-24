@@ -6,6 +6,10 @@ const linksArray = [
         text: 'home'
     },
     {
+        href: '/member',
+        text: 'member'
+    },
+    {
         href: '/SecondPage',
         text: 'secondPage'
     },
@@ -28,7 +32,7 @@ const NavBar = (props) => {
             <ul>
                 { // basic url
                     linksArray.map((link, idx) => {
-        
+
                         return <li
                             key={idx}
                         >
@@ -38,12 +42,12 @@ const NavBar = (props) => {
                                 </a>
                             </Link>
                         </li>;
-        
+
                     })
                 }
                 { // user test
                     users.map((user, idx) => {
-        
+
                         return <li
                             key={idx}
                         >
@@ -61,7 +65,7 @@ const NavBar = (props) => {
                                 </a>
                             </Link>
                         </li>;
-        
+
                     })
                 }
                 {props.children}

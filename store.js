@@ -69,7 +69,7 @@ export const loading = (state = loadingInitState, action) => {
 };
 
 // ACTIONS dispatch + 塞資料給 reducer
-export const showName = (name) => {  
+export const showName = (name) => {
   // 待會上面 REDUCERS 的 action 參數就是這些~
   return {
     type: actionTypes.TERRY,

@@ -1,4 +1,5 @@
 const { createServer } = require('http')
+const axios = require('axios');
 const express = require('express');
 const { parse } = require('url')
 const next = require('next')
@@ -42,6 +43,21 @@ app
             return app.render(req, res, '/User', {
                 name: req.params.name
             });
+
+        });
+
+        server.get('/memberList', async (req, res) => {
+
+          const response = await axios.get('https://jsonplaceholder.typicode.com/todos'),
+            data = response.data;
+
+          return res.json(data);
+
+        });
+
+        server.get('/member', (req, res) => {
+
+          return app.render(req, res, '/member');
 
         });
 

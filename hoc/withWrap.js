@@ -29,13 +29,14 @@ const withWrap = (Components, seoConfig, setting = {}) => {
                             )
                             : (null)
                     }
-                    <NavBar></NavBar>
+                    <NavBar/>
                     {
                         setting.haveSideBar
                             ? ('side bar!!')
                             : ('back nav~')
                     }
                     <Components
+                        {...this.props}
                         name={this.props.name}
                     />
                 </main>
@@ -45,7 +46,9 @@ const withWrap = (Components, seoConfig, setting = {}) => {
 
     }
 
-    return Container;
+    return React.forwardRef((props, ref) => (
+        <Container {...props} forwardRef={ref}  />
+    ));
 
 };
 
