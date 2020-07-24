@@ -12,7 +12,13 @@ class User extends React.Component {
 
     }
 
-    static async getInitialProps ({ req, ctx }) {}
+    // https://github.com/vercel/next.js/tree/v9.1.6
+    static async getInitialProps ({ req, query }) {
+        return {
+            name: query.name,
+            query
+        }
+    }
 
     showLog = () => {
 

@@ -8,13 +8,9 @@ const withWrap = (Components, seoConfig, setting = {}) => {
 
     class Container extends PureComponent {
 
-        static async getInitialProps({ query }) {
-
-            return {
-                name: query.name
-            };
-
-        }
+		static getInitialProps(ctx) {
+			return Components.getInitialProps ? Components.getInitialProps(ctx) : {...ctx}
+		}
 
         render () {
 
@@ -37,8 +33,6 @@ const withWrap = (Components, seoConfig, setting = {}) => {
                     }
                     <Components
                         {...this.props}
-                        // name={this.props.name}
-                        ref={this.props.forwardRef}
                     />
                 </main>
             );
@@ -47,9 +41,6 @@ const withWrap = (Components, seoConfig, setting = {}) => {
 
     }
 
-    // return React.forwardRef((props, ref) => (
-    //     <Container {...props} forwardRef={ref}  />
-    // ));
     return Container;
 
 };
