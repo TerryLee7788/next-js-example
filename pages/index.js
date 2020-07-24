@@ -1,7 +1,7 @@
 import React from 'react';
 import withWrap from '../hoc/withWrap';
 
-function Home() {
+function Home () {
     return <div>Welcome to Next.js!</div>
 }
 

@@ -9,7 +9,7 @@ const withWrap = (Components, seoConfig, setting = {}) => {
     class Container extends PureComponent {
 
 		static getInitialProps(ctx) {
-			return Components.getInitialProps ? Components.getInitialProps(ctx) : {...ctx}
+			return Components.getInitialProps ? Components.getInitialProps(ctx) : {}
 		}
 
         render () {
