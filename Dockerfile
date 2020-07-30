@@ -8,6 +8,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # 執行指令
+# lets you execute commands inside of your Docker image.
+# These commands get executed "once" at "build time" and get written into your Docker image as a new layer.
 RUN npm install
 
 # copy 外部的檔案到裡面~

@@ -1,5 +1,6 @@
-const withSass = require('@zeit/next-sass');
+const withSass = require('@zeit/next-sass')
 const withCSS = require('@zeit/next-css')
+const path = require('path')
 
 const CONFIG = {
     webpack: (config) => {
@@ -24,6 +25,12 @@ const CONFIG = {
                 ]
             }
         );
+
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            '@Style': path.join(__dirname, 'style'),
+        }
+        config.resolve.extensions = ['.js', '.scss', '.css']
 
         return config;
 

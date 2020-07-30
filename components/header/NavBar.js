@@ -46,7 +46,7 @@ const NavBar = (props) => {
 
                     })
                 }
-                { // user test
+                {/* { // user test
                     users.map((user, idx) => {
 
                         return <li
@@ -68,7 +68,7 @@ const NavBar = (props) => {
                         </li>;
 
                     })
-                }
+                } */}
                 {props.children}
 
             </ul>

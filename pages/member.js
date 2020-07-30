@@ -3,33 +3,23 @@ import withWrap from '../hoc/withWrap';
 import axios from 'axios';
 
 class Member extends Component {
-
     constructor (props) {
-
         super(props);
-
         this.state = {
             lists: []
         };
-
     }
 
     componentDidMount () {
-
         axios.get('/memberList')
             .then((res) => {
-
-                console.log('componentDidMount: ', res);
                 this.setState({
                     lists: res.data
                 });
-
             });
-
     }
 
     render () {
-
         return (
             <div>
                 <span>memeber</span>
@@ -44,9 +34,7 @@ class Member extends Component {
                 </ul>
             </div>
         )
-
     }
-
 }
 
 export default withWrap(Member);

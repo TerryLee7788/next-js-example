@@ -16,21 +16,22 @@ const SeoMeta = (props) => {
         openGraph
     } = props.config;
 
+    const pageTitle = titleTemplate
+        ? (titleTemplate.replace(/%s/, title))
+        : (title)
+
+    const ogTitle = openGraph && openGraph.title ? openGraph.title : pageTitle
+    const ogDescription = openGraph && openGraph.description ? openGraph.description : description
+
     return (
         <Head>
-            <title>
-                {
-                    titleTemplate
-                        ? (titleTemplate.replace(/%s/, title))
-                        : (title)
-                }
-            </title>
+            <title>{pageTitle}</title>
             <meta name="description" content={description} />
             {/* canonical 暫時還沒弄~ 要看一下規範 */}
-            <meta property="og:title" content={openGraph.title} />
-            <meta property="og:description" content={openGraph.description} />
+            <meta property="og:title" content={ogTitle} />
+            <meta property="og:description" content={ogDescription} />
             {
-                openGraph.images && openGraph.images.length
+                openGraph && openGraph.images && openGraph.images.length
                     ? (
                         openGraph.images.map((image, idx) => (
                             <meta

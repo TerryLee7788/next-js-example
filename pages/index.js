@@ -5,4 +5,7 @@ function Home () {
     return <div>Welcome to Next.js!</div>
 }
 
-export default withWrap(Home);
+export default withWrap(Home, {
+    title: 'Home page',
+    titleTemplate: 'NextJs Demo | %s'
+});

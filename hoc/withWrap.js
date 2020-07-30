@@ -3,6 +3,7 @@ import compose from 'redux';
 import { connect } from 'react-redux'
 import SeoMeta from '../components/SeoMeta';
 import NavBar from '../components/header/NavBar';
+import styles from './withWrap.scss'
 
 const withWrap = (Components, seoConfig, setting = {}) => {
 
@@ -26,14 +27,16 @@ const withWrap = (Components, seoConfig, setting = {}) => {
                             : (null)
                     }
                     <NavBar/>
-                    {
+                    {/* {
                         setting.haveSideBar
                             ? ('side bar!!')
                             : ('back nav~')
-                    }
-                    <Components
-                        {...this.props}
-                    />
+                    } */}
+                    <section className={styles.wrap}>
+                        <Components
+                            {...this.props}
+                        />
+                    </section>
                 </main>
             );
 
